@@ -22,6 +22,7 @@ RUN set -ex \
     && make \
     && make install \
     && make clean \
+    && cd / \
     && rm -rf /Python-3.7.0* \
     && yum install -y epel-release \
     && yum install -y python-pip \
