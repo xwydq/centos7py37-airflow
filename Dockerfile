@@ -55,11 +55,11 @@ RUN set -ex \
     # 更新pip版本
     && pip install --upgrade pip \
     # 安装airflow及依赖
-    && mkdir -p ~/.pip/  \
-    && echo '[global]' >> ~/.pip/pip.conf \
-    && echo 'index-url = http://mirrors.aliyun.com/pypi/simple ' >> ~/.pip/pip.conf \
-    && echo '[install]' >> ~/.pip/pip.conf \
-    && echo 'trusted-host=mirrors.aliyun.com' >> ~/.pip/pip.conf \
+    #&& mkdir -p ~/.pip/  \
+    #&& echo '[global]' >> ~/.pip/pip.conf \
+    #&& echo 'index-url = http://mirrors.aliyun.com/pypi/simple ' >> ~/.pip/pip.conf \
+    #&& echo '[install]' >> ~/.pip/pip.conf \
+    #&& echo 'trusted-host=mirrors.aliyun.com' >> ~/.pip/pip.conf \
     && cd /centos7py37-airflow \
     && pip install -r requirement.txt
 
