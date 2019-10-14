@@ -9,9 +9,11 @@ MAINTAINER xuwy # 指定作者信息
 
 RUN set -ex \
     # 预安装所需组件
+    && yum install -y git \
+    && git clone https://github.com/xwydq/centos7py37-airflow.git \
     && echo "nameserver 144.144.144.144" >> /etc/resolv.conf \
     && yum install -y wget tar libffi-devel zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make initscripts \
-    && yum install -y mysql-devel postgresql-devel libsasl2-devel openldap-devel gcc-c++ git libaio \
+    && yum install -y mysql-devel postgresql-devel libsasl2-devel openldap-devel gcc-c++ libaio \
     # 安装Python-3.7.0
     && wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz \
     && tar -zxvf Python-3.7.0.tgz \
@@ -34,9 +36,8 @@ RUN set -ex \
     && sed -i "s#/usr/bin/python#/usr/bin/python2.7#" /usr/libexec/urlgrabber-ext-down \
     && yum install -y deltarpm \
     # 安装 oracle-instantclient
-    && git clone https://github.com/xwydq/centos7py37-airflow.git \
-    && rpm -ivh centos7py37-airflow/oracle-instantclient12.1/oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm \
-    && rpm -ivh centos7py37-airflow/oracle-instantclient12.1/oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm \
+    && rpm -ivh /centos7py37-airflow/oracle-instantclient12.1/oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm \
+    && rpm -ivh /centos7py37-airflow/oracle-instantclient12.1/oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm \
     && echo 'export ORACLE_HOME=/usr/lib/oracle/12.1/client64' >> /etc/profile \
     && echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME:$ORACLE_HOME/lib' >> /etc/profile \
     && echo 'export PATH=$PATH:/usr/local/python3/bin' >> /etc/profile \
