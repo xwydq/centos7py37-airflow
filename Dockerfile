@@ -60,6 +60,7 @@ RUN set -ex \
     && echo 'index-url = http://mirrors.aliyun.com/pypi/simple ' >> ~/.pip/pip.conf \
     && echo '[install]' >> ~/.pip/pip.conf \
     && echo 'trusted-host=mirrors.aliyun.com' >> ~/.pip/pip.conf \
-    && pip install --target=/centos7py37-airflow -r requirement.txt
+    && cd /centos7py37-airflow \
+    && pip install -r requirement.txt
 
 ENV LC_ALL zh_CN.UTF-8
