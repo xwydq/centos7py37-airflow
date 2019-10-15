@@ -61,6 +61,7 @@ RUN set -ex \
     #&& echo '[install]' >> ~/.pip/pip.conf \
     #&& echo 'trusted-host=mirrors.aliyun.com' >> ~/.pip/pip.conf \
     && cd /centos7py37-airflow \
-    && pip install -r requirement.txt
+    && pip install -r requirement.txt \
+    && rm -rf /centos7py37-airflow
 
 ENV LC_ALL zh_CN.UTF-8
