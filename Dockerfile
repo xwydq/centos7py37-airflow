@@ -13,7 +13,7 @@ RUN set -ex \
     && git clone https://github.com/xwydq/centos7py37-airflow.git \
     && echo "nameserver 144.144.144.144" >> /etc/resolv.conf \
     && yum install -y wget tar libffi-devel zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make initscripts \
-    && yum install -y mysql-devel postgresql-devel libsasl2-devel openldap-devel gcc-c++ libaio \
+    && yum install -y mysql-devel postgresql-devel libsasl2-devel openldap-devel gcc-c++ libaio git \
     # 安装Python-3.7.0
     && wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz \
     && tar -zxvf Python-3.7.0.tgz \
